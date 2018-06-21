@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-"use strict";
+
 
 var APP_DATA = {
   scenes: [
@@ -64,51 +64,25 @@ var APP_DATA = {
 
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
-  // Create scenes.
-  var scenes = data.scenes.map(function(data) {
-    var urlPrefix = "tiles";
-    var source = Marzipano.ImageUrlSource.fromString(
-      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
-      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" }
-    );
-    var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    // var limiter = Marzipano.RectilinearView.limit.traditional(
-    //   data.faceSize,
-    //   (100 * Math.PI) / 180,
-    //   (120 * Math.PI) / 180
-    // );
-    var view = new Marzipano.RectilinearView();
-
-    var scene = viewer.createScene({
-      source: source,
-      geometry: geometry,
-      view: view
-    });
-
-    // // Create link hotspots.
-    // data.linkHotspots.forEach(function(hotspot) {
-    //   var element = createLinkHotspotElement(hotspot);
-    //   scene
-    //     .hotspotContainer()
-    //     .createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    // });
-
-    // // Create info hotspots.
-    // data.infoHotspots.forEach(function(hotspot) {
-    //   var element = createInfoHotspotElement(hotspot);
-    //   scene
-    //     .hotspotContainer()
-    //     .createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    // });
-
-    return {
-      data: data,
-      scene: scene,
-      view: view
-    };
+  var levels = [
+    { tileSize: 512, size: 512 },
+    { tileSize: 512, size: 1024 }
+  ];
+  
+  var geometry = new Marzipano.CubeGeometry(levels);
+  var source = Marzipano.ImageUrlSource.fromString("tiles/0-ss/{z}/{f}/{y}/{x}.jpg");
+  var view = new Marzipano.RectilinearView();
+  
+  var scene = viewer.createScene({
+    source: source,
+    geometry: geometry,
+    view: view
   });
 
+  scene.switchTo({
+    transitionDuration: 1000
+  });
 
 
 })();
