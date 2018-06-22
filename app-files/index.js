@@ -83,7 +83,6 @@ var APP_DATA = {
   var element = document.getElementById('spot');
   var position = { yaw: Math.PI/4, pitch: Math.PI/8 };
   scene.hotspotContainer().createHotspot(element, position)
-  
 
 
   scene.switchTo({
