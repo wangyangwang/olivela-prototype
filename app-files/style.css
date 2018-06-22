@@ -819,15 +819,18 @@ body.view-control-buttons .viewControlButton {
   border-radius: 20px;
   padding: 10px;
 }
+#spot img {
+  width: 100px;
+}
 
 #modal-1 {
   position: absolute;
   margin: auto;
   padding: 1em;
   border-radius: 20px;
-  background: rgba(251, 255, 6, 0.623);
+  background: black;
   width: 400px;
-  height: 800px;
+  height: 400px;
 }
 
 #modal-1 h2 {

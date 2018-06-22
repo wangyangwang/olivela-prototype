@@ -44,9 +44,7 @@ var APP_DATA = {
   name: "Project Title",
   settings: {
     mouseViewMode: "drag",
-    autorotateEnabled: true,
-    fullscreenButton: false,
-    viewControlButtons: false
+    autorotateEnabled: true
   }
 };
 
@@ -66,10 +64,12 @@ var APP_DATA = {
 
 
   var levels = [
-    { tileSize: 512, size: 512 },
-    { tileSize: 512, size: 1024 }
+    { tileSize: 256, size: 256 },
+    { tileSize: 512, size: 512 }
   ];
   
+  // var levels = APP_DATA.levels;
+
   var geometry = new Marzipano.CubeGeometry(levels);
   var source = Marzipano.ImageUrlSource.fromString("tiles/0-ss/{z}/{f}/{y}/{x}.jpg");
   var view = new Marzipano.RectilinearView();
