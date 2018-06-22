@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 var APP_DATA = {
   scenes: [
     {
@@ -49,7 +48,6 @@ var APP_DATA = {
 };
 
 (function() {
-
   var data = APP_DATA;
   var Marzipano = window.Marzipano;
 
@@ -62,33 +60,54 @@ var APP_DATA = {
 
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+  var levels = [{ tileSize: 256, size: 256 }, { tileSize: 512, size: 512 }];
 
-  var levels = [
-    { tileSize: 256, size: 256 },
-    { tileSize: 512, size: 512 }
-  ];
-  
   // var levels = APP_DATA.levels;
 
   var geometry = new Marzipano.CubeGeometry(levels);
-  var source = Marzipano.ImageUrlSource.fromString("tiles/0-ss/{z}/{f}/{y}/{x}.jpg");
+  var source = Marzipano.ImageUrlSource.fromString(
+    "tiles/0-ss/{z}/{f}/{y}/{x}.jpg"
+  );
   var view = new Marzipano.RectilinearView();
-  
+
   var scene = viewer.createScene({
     source: source,
     geometry: geometry,
     view: view
   });
 
-  var element = document.getElementById('spot');
-  var position = { yaw: Math.PI/4, pitch: Math.PI/8 };
-  scene.hotspotContainer().createHotspot(element, position)
+  //////scene 02
 
+  var scene2 = viewer.createScene({
+    source: Marzipano.ImageUrlSource.fromString(
+      "tiles/1-ss/{z}/{f}/{y}/{x}.jpg"
+    ),
+    geometry: geometry,
+    view: view
+  });
+
+  ////
+
+  var element = document.getElementById("spot");
+  var position = { yaw: Math.PI / 4, pitch: Math.PI / 8 };
+  scene.hotspotContainer().createHotspot(element, position);
+
+  var toScene01Button = document.getElementById("to-scene1");
+  var toScene02Button = document.getElementById("to-scene2");
+
+  toScene01Button.addEventListener("click", function() {
+    scene.switchTo({
+      transitionDuration: 1000
+    });
+  });
+
+  toScene02Button.addEventListener("click", function() {
+    scene2.switchTo({
+      transitionDuration: 1000
+    });
+  });
 
   scene.switchTo({
     transitionDuration: 1000
   });
-
-
-
 })();
