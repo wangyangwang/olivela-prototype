@@ -123,9 +123,6 @@ var APP_DATA = {
 
   ////
 
-  var element = document.getElementById("spot");
-  var position = { yaw: Math.PI / 4, pitch: Math.PI / 8 };
-  scene.hotspotContainer().createHotspot(element, position);
 
   var toScene01Button = document.getElementById("to-scene1");
   var toScene02Button = document.getElementById("to-scene2");
@@ -140,7 +137,7 @@ var APP_DATA = {
 
   // });
 
-  
+
   scene2.switchTo({
     transitionDuration: 1000
   });
