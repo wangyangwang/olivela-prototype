@@ -7,70 +7,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"
   />
+
+
   <style>
     @-ms-viewport {
       width: device-width;
     }
   </style>
   <link rel="stylesheet" href="vendor/reset.min.css">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+    body {
+      font-family: 'Playfair Display', serif;
+
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      background: pink;
+    }
+    
+    nav {
+      align-self: center;
+      padding: 50px;
+      background:whitesmoke;
+    }
+
+    nav a{
+      font-size: 80px;
+      text-decoration: none;
+      color: black;
+    }
+  
+  </style>
+
+
 </head>
 
-<body class="single-scene">
-
-  <div id="pano"></div>
-
+<body class="home-scene">
   <nav>
-    <a href="#" id="to-scene1" class="link"> > Room01</a>
-    <a href="#" id="to-scene2" class="link"> > Room02</a>
+      <a href="room01.html">Goto Rooms</a>
   </nav>
-
-  <!-- hotspot and modal -->
-  <div id="spot" data-micromodal-trigger="modal-1" >
-    <h1>hello world</h1>
-    <img src="img/doge.png">
-  </div>
-
-  <!-- [1] -->
-  <div id="modal-1" aria-hidden="true" class="modal">
-    <!-- [2] -->
-    <div tabindex="-1" data-micromodal-close>
-      <!-- [3] -->
-      <div role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-        <header>
-          <h2 id="modal-1-title">
-           title
-          </h2>
-          <!-- [4] -->
-          <button aria-label="Close modal" data-micromodal-close>CLOSE</button>
-        </header>
-        <div id="modal-1-content">
-          <img src="img/Pikachu_dancin.gif">
-    
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="vendor/es5-shim.js"></script>
-  <script src="vendor/eventShim.js"></script>
-  <script src="vendor/classList.js"></script>
-  <script src="vendor/requestAnimationFrame.js"></script>
-  <script src="vendor/screenfull.min.js"></script>
-  <script src="vendor/bowser.min.js"></script>
-  <script src="vendor/marzipano.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
-
-
-
-  <!-- <script src="data.js"></script> -->
-  <!-- handle spehre image/video stuff -->
-  <script src="index.js"></script>
-  <!-- handle modal and hotspot realted stuff -->
-  <script src="other.js"></script>
-
-
-
 </body>
 
 </html>

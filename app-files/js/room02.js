@@ -17,7 +17,7 @@
 var APP_DATA = {
   scenes: [
     {
-      id: "0-ss",
+      id: "2-ss",
       name: "ss",
       levels: [
         {
@@ -60,15 +60,31 @@ var APP_DATA = {
 
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
-  var levels = [{ tileSize: 256, size: 256 }, { tileSize: 512, size: 512 }];
+  var levels = [{
+    "tileSize": 256,
+    "size": 256,
+    "fallbackOnly": true
+  },
+  {
+    "tileSize": 512,
+    "size": 512
+  },
+  {
+    "tileSize": 512,
+    "size": 1024
+  }];
 
   // var levels = APP_DATA.levels;
 
   var geometry = new Marzipano.CubeGeometry(levels);
   var source = Marzipano.ImageUrlSource.fromString(
-    "tiles/0-ss/{z}/{f}/{y}/{x}.jpg"
+    "tiles/2-ss/{z}/{f}/{y}/{x}.jpg"
   );
-  var view = new Marzipano.RectilinearView();
+  var view = new Marzipano.RectilinearView({
+    yaw: 90 * Math.PI/180,
+    pitch: -30 * Math.PI/180,
+    fov: 90 * Math.PI/180
+  });
 
   var scene = viewer.createScene({
     source: source,
@@ -78,12 +94,31 @@ var APP_DATA = {
 
   //////scene 02
 
+  //get video assets
+  var asset = new VideoAsset();
+  var video = document.createElement('video');
+  video.src = 'http://www.marzipano.net/media/video/mercedes-f1-1280x640.mp4';
+  video.crossOrigin = 'anonymous';
+  video.autoplay = true;
+  video.loop = true;
+  video.muted = true;
+  // Prevent the video from going full screen on iOS.
+  video.playsInline = true;
+  video.webkitPlaysInline = true;
+  //play video and apply it to the source
+  video.play();
+  asset.setVideo(video);
+  var source2 = new Marzipano.SingleAssetSource(asset);
+  //.....
+  var limiter = Marzipano.RectilinearView.limit.vfov(90*Math.PI/180, 90*Math.PI/180);
+  var geometry2 = new Marzipano.EquirectGeometry([ { width: 1 } ]);
+  var view2 = new Marzipano.RectilinearView({ fov: Math.PI/2 }, limiter);
+
+
   var scene2 = viewer.createScene({
-    source: Marzipano.ImageUrlSource.fromString(
-      "tiles/1-ss/{z}/{f}/{y}/{x}.jpg"
-    ),
-    geometry: geometry,
-    view: view
+    source: source2,
+    geometry: geometry2,
+    view: view2
   });
 
   ////
@@ -95,19 +130,19 @@ var APP_DATA = {
   var toScene01Button = document.getElementById("to-scene1");
   var toScene02Button = document.getElementById("to-scene2");
 
-  toScene01Button.addEventListener("click", function() {
-    scene.switchTo({
-      transitionDuration: 1000
-    });
-  });
+  // toScene01Button.addEventListener("click", function() {
+  //   scene.switchTo({
+  //     transitionDuration: 1000
+  //   });
+  // });
 
-  toScene02Button.addEventListener("click", function() {
-    scene2.switchTo({
-      transitionDuration: 1000
-    });
-  });
+  // toScene02Button.addEventListener("click", function() {
 
-  scene.switchTo({
+  // });
+
+  
+  scene2.switchTo({
     transitionDuration: 1000
   });
+
 })();
