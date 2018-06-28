@@ -64,11 +64,14 @@ var APP_DATA = {
   var source = Marzipano.ImageUrlSource.fromString(
     "tiles/2-ss/{z}/{f}/{y}/{x}.jpg"
   );
+  
+  var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/180);
+  
   var view = new Marzipano.RectilinearView({
     yaw: 90 * Math.PI/180,
     pitch: -30 * Math.PI/180,
     fov: 90 * Math.PI/180
-  });
+  },limiter);
 
   var scene = viewer.createScene({
     source: source,
