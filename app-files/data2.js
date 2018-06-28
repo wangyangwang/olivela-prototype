@@ -27,17 +27,17 @@ var APP_DATA = {
       "linkHotspots": [],
       "infoHotspots": [
         {
-          "yaw": 1.3561912406919348,
-          "pitch": -0.1998982912661198,
+          "yaw": 3.3561912406919348,
+          "pitch": -0.2008982912661198,
           "title": "Lorem ipsum <div>dolor sit amet</div>",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
-        {
-          "yaw": -1.1439120619561631,
-          "pitch": 0.15653584895098227,
-          "title": "Salt Lake",
-          "text": "Wide<div>Blue</div><div>Green</div><div>Lake</div>"
-        }
+        // {
+        //   "yaw": -1.1439120619561631,
+        //   "pitch": 0.15653584895098227,
+        //   "title": "Lorem ipsum <div>dolor sit amet</div>",
+        //   "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        // }
       ]
     }
   ],

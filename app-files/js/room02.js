@@ -85,7 +85,7 @@ var source = new Marzipano.SingleAssetSource(asset);
     //   { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.EquirectGeometry([ { width: 1 } ]);
 
-    var limiter = Marzipano.RectilinearView.limit.vfov(90*Math.PI/180, 90*Math.PI/180);
+    var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/300);
     var view = new Marzipano.RectilinearView({ fov: Math.PI/2 }, limiter);
 
     var scene = viewer.createScene({
@@ -419,7 +419,7 @@ function tryStart() {
   started = true;
 
   var video = document.createElement('video');
-  video.src = 'http://www.marzipano.net/media/video/mercedes-f1-1280x640.mp4';
+  video.src = 'video/room_video.mp4';
   video.crossOrigin = 'anonymous';
   video.autoplay = true;
   video.loop = true;
