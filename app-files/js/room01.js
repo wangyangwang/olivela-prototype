@@ -76,34 +76,7 @@ var APP_DATA = {
     view: view
   });
 
-  //////scene 02
 
-  //get video assets
-  var asset = new VideoAsset();
-  var video = document.createElement('video');
-  video.src = 'http://www.marzipano.net/media/video/mercedes-f1-1280x640.mp4';
-  video.crossOrigin = 'anonymous';
-  video.autoplay = true;
-  video.loop = true;
-  video.muted = true;
-  // Prevent the video from going full screen on iOS.
-  video.playsInline = true;
-  video.webkitPlaysInline = true;
-  //play video and apply it to the source
-  video.play();
-  asset.setVideo(video);
-  var source2 = new Marzipano.SingleAssetSource(asset);
-  //.....
-  var limiter = Marzipano.RectilinearView.limit.vfov(90*Math.PI/180, 90*Math.PI/180);
-  var geometry2 = new Marzipano.EquirectGeometry([ { width: 1 } ]);
-  var view2 = new Marzipano.RectilinearView({ fov: Math.PI/2 }, limiter);
-
-
-  var scene2 = viewer.createScene({
-    source: source2,
-    geometry: geometry2,
-    view: view2
-  });
 
   ////
 
@@ -113,16 +86,6 @@ var APP_DATA = {
 
   var toScene01Button = document.getElementById("to-scene1");
   var toScene02Button = document.getElementById("to-scene2");
-
-  // toScene01Button.addEventListener("click", function() {
-
-  // });
-
-  // toScene02Button.addEventListener("click", function() {
-  //   scene2.switchTo({
-  //     transitionDuration: 1000
-  //   });
-  // });
 
 
   scene.switchTo({
