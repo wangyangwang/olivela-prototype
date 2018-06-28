@@ -65,7 +65,8 @@ var APP_DATA = {
     "tiles/2-ss/{z}/{f}/{y}/{x}.jpg"
   );
   
-  var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/180);
+  var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/300);
+
   
   var view = new Marzipano.RectilinearView({
     yaw: 90 * Math.PI/180,
